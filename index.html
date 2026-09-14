@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
+
+    <meta name="theme-color" content="#080b18">
+
+    <title>صندوق ذكرياتنا 🤍</title>
+
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family:
+                "Segoe UI",
+                Tahoma,
+                Arial,
+                sans-serif;
+
+            color: #ffffff;
+
+            background:
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(119, 87, 255, 0.22),
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(0, 210, 255, 0.14),
+                    transparent 32%
+                ),
+
+                radial-gradient(
+                    circle at 50% 90%,
+                    rgba(255, 77, 166, 0.12),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #070914 0%,
+                    #0c1022 45%,
+                    #090b18 100%
+                );
+
+            overflow-x: hidden;
+        }
+
+
+        /* =========================================
+           BACKGROUND LIGHT
+        ========================================= */
+
+        body::before,
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            width: 230px;
+            height: 230px;
+
+            border-radius: 50%;
+
+            filter: blur(80px);
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+        body::before {
+
+            top: 5%;
+            left: -100px;
+
+            background:
+                rgba(116, 86, 255, 0.25);
+        }
+
+        body::after {
+
+            bottom: 5%;
+            right: -100px;
+
+            background:
+                rgba(0, 200, 255, 0.18);
+        }
+
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        .vault {
+
+            width: min(100%, 900px);
+
+            margin: auto;
+
+            padding:
+                25px
+                16px
+                50px;
+        }
+
+
+        /* =========================================
+           GLASS CARD
+        ========================================= */
+
+        .glass {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.10),
+                    rgba(255,255,255,0.035)
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.13);
+
+            box-shadow:
+
+                0 25px 70px
+                rgba(0,0,0,0.40),
+
+                inset 0 1px 0
+                rgba(255,255,255,0.08);
+
+            backdrop-filter:
+                blur(20px);
+
+            -webkit-backdrop-filter:
+                blur(20px);
+
+            border-radius:
+                28px;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            min-height: 470px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding:
+                55px
+                25px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 320px;
+            height: 320px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(143,112,255,0.20),
+                    transparent 65%
+                );
+
+            top: -150px;
+            right: -100px;
+        }
+
+
+        /* =========================================
+           HERO ICON
+        ========================================= */
+
+        .hero-icon {
+
+            width: 86px;
+            height: 86px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            font-size: 38px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.16),
+                    rgba(255,255,255,0.04)
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.16);
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,0.35);
+
+            margin-bottom: 25px;
+
+            position: relative;
+
+            z-index: 1;
+        }
+
+
+        /* =========================================
+           HERO TITLE
+        ========================================= */
+
+        .hero-title {
+
+            position: relative;
+
+            text-align: center;
+
+            margin-bottom: 15px;
+
+            z-index: 1;
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(38px, 8vw, 64px);
+
+            line-height: 1.2;
+
+            font-weight: 700;
+
+            letter-spacing: -1px;
+
+            margin: 0;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #ffffff 10%,
+                    #dcd6ff 45%,
+                    #9de8ff 90%
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+
+            text-shadow:
+                0 10px 40px
+                rgba(120,100,255,0.18);
+        }
+
+
+        /* =========================================
+           TITLE DECORATION
+        ========================================= */
+
+        .title-decoration {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-top: 8px;
+        }
+
+
+        .title-decoration span {
+
+            width: 55px;
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(190,180,255,0.65)
+                );
+        }
+
+
+        .title-decoration span:last-child {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(160,230,255,0.65),
+                    transparent
+                );
+        }
+
+
+        .title-decoration i {
+
+            width: 25px;
+            height: 25px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-style: normal;
+
+            color: #ddd8ff;
+
+            font-size: 16px;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 20px
+                rgba(150,130,255,0.15);
+        }
+
+
+        /* =========================================
+           HERO DESCRIPTION
+        ========================================= */
+
+        .hero p {
+
+            max-width: 600px;
+
+            color:
+                rgba(255,255,255,0.72);
+
+            font-size:
+                clamp(15px,3.5vw,19px);
+
+            line-height: 1.9;
+
+            position: relative;
+
+            z-index: 1;
+        }
+
+
+        /* =========================================
+           SCROLL INDICATOR
+        ========================================= */
+
+        .scroll-hint {
+
+            margin-top: 38px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            cursor: pointer;
+
+            position: relative;
+
+            z-index: 1;
+        }
+
+
+        .scroll-text {
+
+            font-size: 13px;
+
+            color:
+                rgba(255,255,255,0.52);
+
+            letter-spacing: 0.5px;
+        }
+
+
+        /* الخط */
+
+        .scroll-line {
+
+            width: 1px;
+
+            height: 18px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(255,255,255,0.05),
+                    rgba(255,255,255,0.55)
+                );
+        }
+
+
+        /* دائرة السهم */
+
+        .scroll-arrow {
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.12),
+                    rgba(255,255,255,0.035)
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.16);
+
+            box-shadow:
+
+                0 8px 25px
+                rgba(0,0,0,0.20),
+
+                inset 0 1px 0
+                rgba(255,255,255,0.08);
+
+            animation:
+                scrollBounce
+                2s
+                ease-in-out
+                infinite;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease;
+        }
+
+
+        .scroll-arrow svg {
+
+            width: 19px;
+            height: 19px;
+
+            fill: none;
+
+            stroke:
+                rgba(255,255,255,0.85);
+
+            stroke-width: 1.7;
+
+            stroke-linecap: round;
+
+            stroke-linejoin: round;
+        }
+
+
+        .scroll-arrow:hover {
+
+            transform:
+                translateY(4px);
+
+            background:
+                rgba(255,255,255,0.14);
+        }
+
+
+        /* =========================================
+           ARROW ANIMATION
+        ========================================= */
+
+        @keyframes scrollBounce {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+
+                transform:
+                    translateY(7px);
+            }
+        }
+
+
+        /* =========================================
+           SECTIONS
+        ========================================= */
+
+        section {
+
+            margin-top: 22px;
+
+            padding: 25px;
+        }
+
+
+        .section-title {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .section-title span {
+
+            font-size: 24px;
+        }
+
+
+        .section-title h2 {
+
+            font-size: 21px;
+
+            font-weight: 600;
+        }
+
+
+        .section-subtitle {
+
+            color:
+                rgba(255,255,255,0.55);
+
+            font-size: 13px;
+
+            margin-top: -13px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================================
+           PHOTO GRID
+        ========================================= */
+
+        .photo-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap: 14px;
+        }
+
+
+        .photo {
+
+            position: relative;
+
+            aspect-ratio:
+                4 / 3;
+
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.05);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.20);
+        }
+
+
+        /* الصورة الرئيسية */
+
+        .photo:first-child {
+
+            grid-column:
+                1 / -1;
+
+            aspect-ratio:
+                16 / 9;
+        }
+
+
+        .photo img {
+
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.5s ease,
+                filter 0.5s ease;
+        }
+
+
+        .photo::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent 55%,
+                    rgba(0,0,0,0.25)
+                );
+
+            pointer-events: none;
+        }
+
+
+        .photo:hover img {
+
+            transform:
+                scale(1.06);
+
+            filter:
+                brightness(1.08);
+        }
+
+
+        /* =========================================
+           MESSAGE
+        ========================================= */
+
+        .message {
+
+            text-align: center;
+
+            padding:
+                35px 25px;
+        }
+
+
+        .quote {
+
+            font-size: 40px;
+
+            opacity: 0.4;
+
+            margin-bottom: 10px;
+        }
+
+
+        .message-text {
+
+            color:
+                rgba(255,255,255,0.86);
+
+            font-size:
+                clamp(17px,4vw,21px);
+
+            line-height: 2;
+
+            max-width: 650px;
+
+            margin: auto;
+        }
+
+
+        .signature {
+
+            margin-top: 25px;
+
+            color:
+                #b9b0ff;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================================
+           GIFT
+        ========================================= */
+
+        .gift {
+
+            text-align: center;
+
+            padding:
+                35px 25px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .gift::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,89,180,0.10);
+
+            filter:
+                blur(45px);
+
+            left: 50%;
+            top: -100px;
+
+            transform:
+                translateX(-50%);
+        }
+
+
+        .gift-icon {
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .gift h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .gift p {
+
+            color:
+                rgba(255,255,255,0.58);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        .gift-button {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            min-height: 54px;
+
+            padding:
+                0 28px;
+
+            border-radius: 18px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7665ff,
+                    #a85cff
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.18);
+
+            box-shadow:
+                0 12px 30px
+                rgba(111,87,255,0.30);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .gift-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 18px 40px
+                rgba(111,87,255,0.42);
+        }
+
+
+        .gift-button:active {
+
+            transform:
+                scale(0.97);
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            text-align: center;
+
+            padding:
+                28px 10px 10px;
+
+            color:
+                rgba(255,255,255,0.38);
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .vault {
+
+                padding:
+                    12px
+                    10px
+                    35px;
+            }
+
+
+            .hero {
+
+                min-height: 450px;
+
+                padding:
+                    45px 20px;
+
+                border-radius:
+                    24px;
+            }
+
+
+            .hero-icon {
+
+                width: 74px;
+                height: 74px;
+
+                font-size: 32px;
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    clamp(34px,10vw,46px);
+
+                letter-spacing:
+                    -0.5px;
+            }
+
+
+            .title-decoration {
+
+                gap: 8px;
+            }
+
+
+            .title-decoration span {
+
+                width: 38px;
+            }
+
+
+            .scroll-hint {
+
+                margin-top: 30px;
+            }
+
+
+            section {
+
+                padding: 18px;
+
+                border-radius:
+                    23px;
+            }
+
+
+            .photo-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+
+                gap: 9px;
+            }
+
+
+            .photo {
+
+                border-radius: 15px;
+
+                aspect-ratio:
+                    1 / 1;
+            }
+
+
+            .photo:first-child {
+
+                grid-column:
+                    1 / -1;
+
+                aspect-ratio:
+                    16 / 10;
+            }
+
+
+            .message {
+
+                padding:
+                    28px 16px;
+            }
+
+
+            .gift {
+
+                padding:
+                    30px 18px;
+            }
+
+
+            .gift-button {
+
+                width: 100%;
+            }
+        }
+
+
+        /* =========================================
+           VERY SMALL PHONES
+        ========================================= */
+
+        @media (max-width: 360px) {
+
+            .photo-grid {
+
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+
+            .photo:first-child {
+
+                grid-column:
+                    span 2;
+
+                grid-row:
+                    span 1;
+            }
+
+
+            .hero h1 {
+
+                font-size: 33px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main class="vault">
+
+
+        <!-- =====================================
+             HERO / WELCOME
+        ====================================== -->
+
+        <div class="hero glass">
+
+
+            <div class="hero-icon">
+                💌
+            </div>
+
+
+            <div class="hero-title">
+
+                <h1>
+                    صندوق ذكرياتنا
+                </h1>
+
+
+                <div class="title-decoration">
+
+                    <span></span>
+
+                    <i>♡</i>
+
+                    <span></span>
+
+                </div>
+
+            </div>
+
+
+            <p>
+
+                بعض اللحظات لا نريد لها أن تصبح مجرد ذكرى...
+
+                <br>
+
+                لذلك جمعتها هنا، لتبقى قريبة منك دائمًا 🤍
+
+            </p>
+
+
+            <!-- Scroll -->
+
+            <div class="scroll-hint">
+
+                <span class="scroll-text">
+                    اكتشف الذكريات
+                </span>
+
+
+                <span class="scroll-line"></span>
+
+
+                <span class="scroll-arrow">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="M12 5v13"></path>
+
+                        <path d="m6 12 6 6 6-6"></path>
+
+                    </svg>
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =====================================
+             PHOTOS
+        ====================================== -->
+
+        <section class="glass">
+
+
+            <div class="section-title">
+
+                <span>📸</span>
+
+                <h2>
+                    لحظات لا تُنسى
+                </h2>
+
+            </div>
+
+
+            <p class="section-subtitle">
+
+                صور صغيرة تحمل حكايات كبيرة
+
+            </p>
+
+
+            <div class="photo-grid">
+
+
+                <!-- الصورة الأولى -->
+
+                <div class="photo">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1000&q=85"
+                        alt="ذكرى جميلة"
+                        loading="lazy">
+
+                </div>
+
+
+                <!-- الصورة الثانية -->
+
+                <div class="photo">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=700&q=85"
+                        alt="لحظة جميلة"
+                        loading="lazy">
+
+                </div>
+
+
+                <!-- الصورة الثالثة -->
+
+                <div class="photo">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=700&q=85"
+                        alt="ذكرى"
+                        loading="lazy">
+
+                </div>
+
+
+                <!-- الصورة الرابعة -->
+
+                <div class="photo">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=700&q=85"
+                        alt="لحظة مميزة"
+                        loading="lazy">
+
+                </div>
+
+
+                <!-- الصورة الخامسة -->
+
+                <div class="photo">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=700&q=85"
+                        alt="ذكرى جميلة"
+                        loading="lazy">
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             PERSONAL MESSAGE
+        ====================================== -->
+
+        <section class="glass message">
+
+
+            <div class="quote">
+                “
+            </div>
+
+
+            <p class="message-text">
+
+                إلى الشخص الذي جعل الكثير من الأيام
+                أجمل مما توقعت...
+
+                <br><br>
+
+                ربما لا تكفي الكلمات لوصف قيمة
+                كل لحظة جميلة عشناها،
+                لكنني أردت أن أترك لك شيئًا صغيرًا
+                تستطيع العودة إليه كلما اشتقت
+                إلى تلك الأيام.
+
+                <br><br>
+
+                هذه ليست مجرد صور...
+
+                <br>
+
+                هذه أجزاء صغيرة من حكاية جميلة
+                أتمنى ألا تنتهي. 🤍
+
+            </p>
+
+
+            <div class="signature">
+
+                بكل الحب، من شخص يقدّرك كثيرًا ✨
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             GIFT
+        ====================================== -->
+
+        <section class="glass gift">
+
+
+            <div class="gift-icon">
+                🎁
+            </div>
+
+
+            <h2>
+
+                وهناك شيء آخر...
+
+            </h2>
+
+
+            <p>
+
+                لم أستطع وضع كل شيء داخل صندوق الذكريات،
+                لذلك تركت لك هدية صغيرة في الخارج.
+
+            </p>
+
+
+            <!--
+                غيّري الرابط هنا
+                إلى رابط YouTube الخاص بك
+            -->
+
+            <a
+                class="gift-button"
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <span>
+                    افتح الهدية
+                </span>
+
+                <span>
+                    ↗
+                </span>
+
+            </a>
+
+
+        </section>
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer>
+
+            صُنع بحب ليبقى شيء جميل من هذه الذكريات 🤍
+
+            <br>
+
+            بيبـــــــو 
+
+        </footer>
+
+
+    </main>
+
+
+</body>
+
+</html>
